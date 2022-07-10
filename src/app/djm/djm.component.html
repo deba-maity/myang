@@ -1,0 +1,50 @@
+<div class="container p-3">
+        <div>
+            <h1 class="dg-main-heading">Its My page</h1>
+        </div>
+        <div class="row pb-3 one-column-grid pt-3">
+            <h1>{{title}}</h1>
+            <h1>{{getval()}}</h1>
+        </div>
+        <button (click)="getname()">Hii</button> 
+        <!-- to put line space  -->
+        <br /><br /> 
+        <button (click)="getsup('dwee')">Hii</button>  
+        <br /><br /> 
+<!-- bullshit event  the # tag should change for multiple things, its called id-->
+<input type="text" #box1 placeholder="bekkar hai" />
+<br /><br /> 
+<!-- box.value is id name we can also use this for button. aise keyup down sab hai waste -->
+<input type="text"   #box (keyup)="getValue(box.value)"/>
+<h1> Box Value is : {{displayVal}} </h1>
+<!-- count increment and decrement -->
+<button (click)="counter('minus')">--</button>
+<p>Count :{{count}}</p>
+<button (click)="counter('add')">++</button>
+<!-- styling see code in scss, but here only this component changes. the code in scss should be put in
+     styles.css for entire module. this is further changed in next line-->
+<h1 class="heading">My page </h1>
+<!-- this applies also for only one line -->
+<style>
+    .heading{
+    color:green
+}
+</style>
+<!-- property binding, use this for boolean value-->
+<input type="text" [value]="name">
+<!-- small if else -->
+<h1 *ngIf="show">if else</h1>
+<!-- header photo -->
+<nav>
+    <img src="photos - Yahoo India Image Search results" >
+</nav>
+<!-- forms here name is actually id, myform is form name, ngform should be same, getform is event name,ngmodel mandatory -->
+<form #myForm="ngForm" (submit)="getform(myForm.value)">
+    <input type="text" ngModel name="djm" />
+    <button>Register</button>
+</form>
+<ul>
+    <li>{{formsData.djm}}</li><!--djm is name of what want to show-->
+</ul>
+<app-djm2 [hero]="data"></app-djm2>
+</div>
